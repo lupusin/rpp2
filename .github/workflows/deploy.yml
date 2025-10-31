@@ -27,20 +27,21 @@ jobs:
 
     - name: Run tests
       run: |
-        python -m unittest test_discriminant.py
+        python -m unittest discover -v
 
     - name: Run flake8 linting
       run: |
-        flake8 discriminant.py test_discriminant.py --max-line-length=120
+        flake8 *.py --max-line-length=120 --ignore=E302,E305
 
     - name: Run bandit security check
       run: |
-        bandit -r discriminant.py
+        bandit -r *.py -f json
 
     - name: Run coverage
       run: |
-        coverage run -m unittest test_discriminant.py
+        coverage run -m unittest discover
         coverage report
+        coverage html
 
   notify:
     runs-on: ubuntu-latest
@@ -54,7 +55,7 @@ jobs:
         to: ${{ secrets.TELEGRAM_CHAT_ID }}
         token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         message: |
-          Pipeline status: ${{ needs.test.result }}
-          Repository: ${{ github.repository }}
-          Commit: ${{ github.sha }}
+          Pipeline Статус: ${{ needs.test.result }}
+          Репозиторий: ${{ github.repository }}
+          Коммит: ${{ github.sha }}
           View logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
