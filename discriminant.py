@@ -6,7 +6,7 @@ def calculate_discriminant(a, b, c):
     :param c: коэффициент c
     :return: значение дискриминанта
     """
-    return b**2 - 4*a*c
+    return b ** 2 - 4 * a * c
 
 
 if __name__ == "__main__":
@@ -17,4 +17,4 @@ if __name__ == "__main__":
         discriminant = calculate_discriminant(a, b, c)
         print(f"Дискриминант: {discriminant}")
     except ValueError:
-        print("Ошибка: введите числовые значения коэффициентов.")#
+        print("Ошибка: введите числовые значения коэффициентов.")
