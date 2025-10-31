@@ -17,4 +17,4 @@ if __name__ == "__main__":
         discriminant = calculate_discriminant(a, b, c)
         print(f"Дискриминант: {discriminant}")
     except ValueError:
-        print("Ошибка: введите числовые значения коэффициентов.")
+        print("Ошибка: введите числовые значения коэффициентов.")#
