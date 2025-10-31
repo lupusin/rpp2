@@ -62,7 +62,7 @@ jobs:
         to: ${{ secrets.TELEGRAM_CHAT_ID }}
         token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         message: |
-          🚀 Pipeline Status: ${{ needs.test.result }}
-          📁 Repository: ${{ github.repository }}
-          🔑 Commit: ${{ github.sha }}
-          📊 View logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          Pipeline Статус: ${{ needs.test.result }}
+          Репозиторий: ${{ github.repository }}
+          Коммит: ${{ github.sha }}
+          View logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
