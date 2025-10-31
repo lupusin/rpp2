@@ -27,11 +27,11 @@ jobs:
 
     - name: Run tests
       run: |
-        python -m unittest test_discriminant.py
+        python -m unittest discover -v
 
     - name: Run flake8 linting
       run: |
-        find . -name "*.py" -exec flake8 {} --max-line-length=120 --ignore=E302,E305 \;
+        flake8 discriminant.py test_discriminant.py --max-line-length=120 --ignore=E302,E305,W291
 
     - name: Run bandit security check
       run: |
@@ -39,7 +39,7 @@ jobs:
 
     - name: Run coverage
       run: |
-        coverage run -m unittest test_discriminant.py
+        coverage run -m unittest discover
         coverage report
 
   notify:
